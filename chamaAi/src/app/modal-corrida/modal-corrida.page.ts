@@ -96,6 +96,10 @@ export class ModalCorridaPage implements OnInit {
         localStorage.setItem('PedidoId', convertPedidoId!);
       });
 
+      const titulo = 'Tudo certo!'
+      const msg = 'Estamos preparando o seu pedido, falta pouco'
+      this.sucessoAlert(titulo, msg);
+
       this.modalCtrl.dismiss();
       this.router.navigateByUrl('tabs/tab2');
     } else {

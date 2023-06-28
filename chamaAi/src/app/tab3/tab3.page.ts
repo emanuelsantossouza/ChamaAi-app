@@ -279,11 +279,8 @@ export class Tab3Page implements OnInit {
   }
 
   buscarSedeEscolhidaParaSede() {
-    this.sedeService.BuscarDadosPorId(this.sedeEscolhidaId).subscribe((sedeEscolhidaDados) => {
-      this.dadosSedeEscolhidaHtml = sedeEscolhidaDados;
-      console.log(this.dadosSedeEscolhidaHtml);
-      console.log(this.salvarContatosSede);
-    })
+    this.dadosSedeEscolhidaHtml = this.listaDadosHtmlSede[this.sedeEscolhidaId - 1];
+    console.log(this.dadosSedeEscolhidaHtml);
   }
 
   buscarMotoboyEscolhidaParaSede() {
@@ -298,10 +295,10 @@ export class Tab3Page implements OnInit {
 
     const hora = dateNow.getHours();
     const minutos = dateNow.getMinutes();
-    this.formatarNumeroHora(minutos);
-    this.formatarNumeroHora(hora);
 
-    const horaFormatada = `${hora}:${minutos}`;
+
+
+    const horaFormatada = `${this.formatarNumeroHora(minutos)}:${this.formatarNumeroHora(hora)}`;
     return horaFormatada;
   }
 
