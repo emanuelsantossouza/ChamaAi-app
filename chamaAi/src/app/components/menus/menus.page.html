@@ -1,0 +1,26 @@
+<ion-menu contentId="main-content">
+  <ion-header id="open-modal">
+    <ion-list id="inbox-list">
+
+      <ion-toolbar color="amarelomenu">
+        <ion-card-title class="ion-text-center"> Menu </ion-card-title>
+      </ion-toolbar>
+
+      <ion-item lines="none" color="amarelomenu">
+        <ion-label>Theme Dark</ion-label>
+      <ion-toggle [checked]="corDoTemaAtual" slot="end" (ionChange)="trocaDeTema($event)"></ion-toggle>
+      </ion-item>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+        <ion-item color="amarelomenu" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+          routerLinkActive="selected">
+
+
+          <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+          <ion-label>{{ p.title }}</ion-label>
+
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+    <h6>version 1.0</h6>
+  </ion-header>
+</ion-menu>

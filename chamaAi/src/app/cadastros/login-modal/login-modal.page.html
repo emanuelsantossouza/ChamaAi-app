@@ -1,0 +1,27 @@
+<ion-content class="content" color="dark" [fullscreen]="true">
+  <div class="title">
+    <h4>Login</h4>
+    <p>Vamos começar</p>
+  </div>
+
+  <form [formGroup]="formLogin">
+    <ion-input type="email" minlength="5" labelPlacement="floating" placeholder="Email" ngModel email label="Email"
+      class="primary-input email" helperText="Informe seu email" errorText=" Por favor, digite um email valido!"
+      formControlName="email"></ion-input>
+
+    <ion-input type="password" minlength="8" labelPlacement="floating" placeholder="********" ngModel senha
+      label="Senha" class="primary-input" helperText="Informe seu senha" errorText=" Por favor, digite um senha valida!"
+      formControlName="senha">
+    </ion-input>
+  </form>
+
+
+  <div class="ion-text-right forgot">
+    <a>Esqueçeu a senha?</a>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <ion-button color="amarelo" class="ion-no-padding" expand="block" (click)="login()">Login</ion-button>
+    <a (click)="cancel()">Fechar</a>
+  </div>
+</ion-content>

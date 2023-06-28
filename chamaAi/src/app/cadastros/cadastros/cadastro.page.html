@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>signup</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="login" text="">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg-color">
+  <ion-card class="ion-no-margin">
+    <ion-card-header>
+      <ion-card-title>
+        Cadastro
+      </ion-card-title>
+      <ion-card-subtitle>
+        Crie sua conta preenchendo
+        o formulário
+      </ion-card-subtitle>
+    </ion-card-header>
+
+
+    <form [formGroup]="formulario">
+      <ion-card-content>
+        <ion-input type="text" helperText="Informe seu nome completo" errorText="Por favor, digite um nome e sobrenome!"
+          ngModel nome label="Nome Completo" labelPlacement="floating" placeholder="Nome Completo"
+          formControlName="nomeCompleto">
+        </ion-input>
+
+        <ion-input type="tel" helperText="Informe seu telefone" errorText="Por favor, digite um telefone valido!"
+          ngModel nome label="Telefone" labelPlacement="floating" placeholder="Telefone" formControlName="telefone">
+        </ion-input>
+
+        <ion-input type="email" helperText="Informe seu email" errorText="Por favor, digite um email valido!" ngModel
+          nome label="Email" labelPlacement="floating" placeholder="Email" formControlName="email">
+        </ion-input>
+
+        <ion-input type="password" helperText="Crie uma senha forte" errorText="Por favor, crie uma senha mais forte!"
+          ngModel nome label="Senha" labelPlacement="floating" placeholder="*******" formControlName="senha">
+        </ion-input>
+
+        <ion-input type="password" helperText="Confirme a sua senha"
+          errorText="O confirmar senha esta diferente de senha. Vefique!" ngModel nome label="Confirmar Senha"
+          labelPlacement="floating" placeholder="*******" formControlName="confirmaSenha">
+        </ion-input>
+
+        <div class="sign-btn-wrap">
+          <ion-button shape="round" (click)="salvarCadastro()" fill="solid" class="sign-btn">Salvar</ion-button>
+        </div>
+
+        <div class="text-tag">
+          <span>Cadastre-se com</span>
+        </div>
+
+        <div class="social-btns">
+          <ion-button (click)="loginFace()" fill="clear" class="facebookbtn ion-no-padding">
+            <ion-img src="assets/img/facebook.png"></ion-img>
+          </ion-button>
+          <ion-button (click)="loginGoogle()" fill="clear" class="googlebtn ion-no-padding">
+            <ion-img src="assets/img/google.png"></ion-img>
+          </ion-button>
+          <ion-button fill="clear" class="applebtn ion-no-padding">
+            <ion-img src="assets/img/apple.png"></ion-img>
+          </ion-button>
+        </div>
+
+      </ion-card-content>
+    </form>
+  </ion-card>
+</ion-content>

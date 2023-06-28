@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-toolbar color="white">
+    <ion-buttons (click)="cancel()" slot="start">
+      <ion-button color="preto">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-searchbar class="serch" color="pretofraco" (ionInput)="buscarFilmes($event)"
+      (click)="BuscarDadosPesquisa(pesquisa)" [(ngModel)]="pesquisa"></ion-searchbar>
+  </ion-toolbar>
+
+
+  <ion-list *ngIf="listaDadosSede">
+    <div class="pesquisa" *ngIf="listaDadosSede.length === 0">
+      <ion-item class="pesquisa" lines="none" class="ion-margin-top">
+        <img src="../assets/img/paginaPesquisa.png" alt="">
+      </ion-item>
+      <ion-label>Não há sede para exibir...</ion-label>
+    </div>
+
+    <ion-item-sliding *ngIf="listaDadosSede.length > 0">
+      <ion-item lines="full" *ngFor="let lista of listaDadosSede">
+
+        <div class="titulos">
+          <ion-label class="tituloNome">{{lista.nome}}</ion-label>
+          <ion-label class="tituloEndereco"><ion-icon name="location-outline"></ion-icon>
+            {{lista.endereco}}</ion-label>
+        </div>
+
+        <ion-img src="{{lista.logo}}"></ion-img>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

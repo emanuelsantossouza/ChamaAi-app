@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+ion-content {
+  --background: rgba(201, 201, 201, 0.35);
+  padding: 0 1rem 0 1rem;
+}
+
+.titulo {
+  margin: .9rem 0 0 0;
+  font-size: 1.3rem;
+}
+
+swiper-container {
+  margin: .5rem 0 0 0;
+}
+
+.small-img {
+  margin-top: -1rem;
+  width: 20rem;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.small-img>img {
+  width: 100%;
+  height: 140px;
+}
+
+.title {
+  margin: 0 0 0 .7rem;
+
+  .titleTop {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+ion-chip {
+  background: var(--ion-color-dark);
+  margin: .5rem 1rem 0 0;
+}
+
+.tipoDeServicoSelecionado {
+  border: 3px solid var(--ion-color-dark);
+}
+
+ion-toolbar {
+  padding: 0 3rem 0 1rem;
+}

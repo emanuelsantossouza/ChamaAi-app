@@ -1,0 +1,53 @@
+<app-menus color="branco"></app-menus>
+<div class="ion-page">
+  <ion-header id="main-content">
+    <ion-toolbar color="amarelo">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-searchbar (click)="openModalSeach()"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content id="main-content" routerLink="/escolha-usuario">
+    <ion-card-header>
+      <ion-card-title>Motoboy</ion-card-title>
+      <ion-card-subtitle>Motoboys proximo de você</ion-card-subtitle>
+    </ion-card-header>
+
+    <swiper-container [spaceBetween]="30" [slidesPerView]="3" [loop]="true" class="stories">
+      <swiper-slide  (click)="salvarMotoboyId(motoboy.id!)" *ngFor="let motoboy of listaDadosHtmlMotoboy">
+        <div class="coluna">
+          <ion-avatar>
+            <ion-img [src]="motoboy.fotoDePerfil"></ion-img>
+          </ion-avatar>
+          <ion-label>{{motoboy.nomeCompleto}}</ion-label>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bases</ion-card-title>
+        <ion-card-subtitle>Bases proximo de você</ion-card-subtitle>
+      </ion-card-header>
+
+
+      <swiper-container class="infoBase">
+        <swiper-slide (click)="salvarSedeId(sede.id!)" *ngFor="let sede of listaDadosHtmlSede">
+          <ion-img [src]="sede.logo"></ion-img>
+          <div class="row">
+            <ion-label>{{sede.nome}}</ion-label>
+            <div>
+              <p>{{sede.endereco}}</p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </ion-card>
+  </ion-content>
+
+
+</div>

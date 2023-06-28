@@ -1,0 +1,64 @@
+<app-menus color="branco"></app-menus>
+<div class="ion-page" id="main-content">
+
+  <ion-header>
+    <ion-toolbar color="amarelo">
+      <ion-title color="branco">Perfil Cliente</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button color="branco"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <div id="main-content" class="imgLogo">
+
+      <ion-avatar *ngIf="isFotoPerfil === true">
+        <ion-img [src]="fotoService.fotos[0].webviewPath"></ion-img>
+      </ion-avatar>
+
+      <ion-avatar *ngIf="isFotoPerfil === false">
+        <ion-img src="/assets/img/fotoPerfil.png" alt="foto de perfil"></ion-img>
+      </ion-avatar>
+
+
+      <ion-fab slot="fixed" vertical="" horizontal="end">
+        <ion-fab-button color="amarelo" size="small" (click)="tirarFotoDePerfilUsuario()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+
+    <ion-card class="ion-text-center" color="amareloclaro">
+      <ion-card-header>
+        <ion-card-title>{{listaCliente.nomeCompleto}}</ion-card-title>
+      </ion-card-header>
+
+
+      <ion-grid>
+        <ion-row class="ion-align-items-end">
+          <ion-col>
+            <ion-item lines="none" class="ion-text-center">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-label>{{listaCliente.email}}</ion-label>
+            </ion-item>
+
+            <ion-item lines="none" class="ion-text-center">
+              <ion-icon name="call-outline"></ion-icon>
+              <ion-label>{{listaCliente.telefone}}</ion-label>
+            </ion-item>
+
+
+            <ion-item lines="none" class="ion-text-center">
+              <ion-icon name="home-outline"></ion-icon>
+              <ion-label>Barra Bonita SP</ion-label>
+            </ion-item>
+
+            <ion-button (click)="alterarCliente()" color="preto" shape="round">Editar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+  </ion-content>
+</div>

@@ -1,0 +1,102 @@
+.margem-grande-Usuario {
+  margin: 0px 0 0 67%;
+}
+
+.margem-media-NUsuario {
+  margin: 0px 0 0 75%;
+}
+
+.margem-pequena-Usuario {
+  margin: 0px 0 0 84%;
+}
+
+
+.margem-grande-NUsuario {
+  margin: 0px 67% 0 0;
+}
+
+.margem-pequena-NUsuario {
+  margin: 0px 84% 0 0;
+}
+
+.margem-media-NUsuario {
+  margin: 0px 75% 0 0;
+}
+
+ion-avatar {
+  width: 50px;
+  height: 50px;
+  margin: -0.2rem 0 0 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+ion-icon {
+  width: 30px;
+  height: 30px;
+}
+
+ion-toolbar {
+  margin-top: .5rem;
+  width: auto;
+}
+
+ion-title {
+  margin: 0 0 0 1rem;
+}
+
+ion-item {
+  background: rgb(206, 202, 202);
+  border-radius: 10px;
+}
+
+
+
+ion-col.minhaMensagemOutroUsuario{
+  margin-right: 190px;
+}
+
+.minhaMensagemOutroUsuario {
+  background: #efeee6;
+  border-radius: 0 10px 10px 10px;
+  height: 2.5rem;
+  text-align: right;
+
+  p {
+    margin-top: 0.2rem;
+    margin-right: 0.8rem;
+    font-size: 14px;
+
+    span {
+      margin: 0 .5rem 0 0;
+    }
+  }
+}
+
+ion-col.minhaMensagem {
+  margin-left: 175px;
+}
+
+.minhaMensagem {
+  background: var(--ion-color-amareloclaro);
+  border-radius: 10px 0 10px 10px;
+  height: 2.5rem;
+  text-align: right;
+
+  p {
+    margin-top: 0.2rem;
+    margin-right: 0.8rem;
+    font-size: 14px;
+
+    span {
+      margin: 0 .5rem 0 0;
+    }
+  }
+}
+
+.time{
+  font-size: .6rem;
+  margin: 0 0 0 .5rem;
+}

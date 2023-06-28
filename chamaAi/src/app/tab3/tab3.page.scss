@@ -1,0 +1,61 @@
+ion-header {
+  background: var(--ion-color-amarelo);
+}
+
+ion-toolbar {
+  margin: .8rem 0 -.5rem 0rem;
+
+  ion-title {
+    margin: 0 0 0 -.2rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+
+  .icon {
+    margin: 0 1rem 0 0;
+    width: 25px;
+    height: 25px;
+  }
+
+  .iconLua {
+    width: 25px;
+    height: 25px;
+    margin: 0 1rem 0 0;
+  }
+}
+
+ion-list {
+  margin-top: .5rem;
+}
+
+.alinamentosDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+ion-avatar {
+  width: 60px;
+  height: 60px;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+
+.conversas {
+  margin: .25rem 4rem 0 1.4rem;
+
+  p {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: #999;
+  }
+
+}
+
+.ultimaHoraVisto {
+  margin-top: 1rem;
+  color: #222;
+}

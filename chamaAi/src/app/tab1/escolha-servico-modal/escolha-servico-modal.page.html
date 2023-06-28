@@ -1,0 +1,64 @@
+<ion-content [fullscreen]="true">
+  <swiper-container [slidesPerView]="1" [loop]="true" [watchSlidesVisibility]="true" speed="400">
+    <swiper-slide (click)="openEntrega()">
+      <div class="container__background">
+        <img src="/assets/img/motoboyIa.jpg" alt="">
+      </div>
+
+
+      <div class="container__degrade">
+        <div class="container__mainTitulo">
+          <h3 class="ion-text-center">
+            Entregas
+          </h3>
+          <p class="ion-text-center">Nosso serviço de entregas é perfeito para quem tem uma vida corrida. Basta informar
+            a
+            localização e o produto,
+            e nós cuidamos do resto para você. Realize o pedido e nos informar tipo de produto que precisa ser entregue.
+          </p>
+        </div>
+        <div>
+          <ion-item lines="none" color="none">
+            <ion-badge>Rápido</ion-badge>
+            <ion-badge>Seguro</ion-badge>
+            <ion-badge>Prático</ion-badge>
+          </ion-item>
+        </div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide (click)="openCorrida()">
+      <div class="container__background imgCorrida">
+        <img src="/assets/img/corrida.png" alt="">
+      </div>
+
+
+      <div class="container__degrade">
+        <div class="container__mainTitulo">
+          <h3 class="ion-text-center">
+            Corrida
+          </h3>
+          <p class="ion-text-center">Nosso serviço de corridas é perfeito para quem precisa de locomoção segura, rápida
+            e econômica. Basta selecionar uma
+            sede, informar sua localização e um motoboy será enviado para buscá-lo e levá-lo ao destino desejado.
+          </p>
+        </div>
+        <div>
+          <ion-item lines="none" color="none">
+            <ion-badge>Rápido</ion-badge>
+            <ion-badge>Seguro</ion-badge>
+            <ion-badge>Prático</ion-badge>
+          </ion-item>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <div class="container__backButton">
+    <ion-icon name="arrow-back-outline" (click)="buttonBack()" size="large" slot="start"></ion-icon>
+  </div>
+  <ion-footer class="container__footer">
+    <h3 class="container__h3">
+      <span>Peça Agora</span> <ion-icon name="arrow-forward-outline" size="large" slot="end"></ion-icon>
+    </h3>
+  </ion-footer>
+</ion-content>

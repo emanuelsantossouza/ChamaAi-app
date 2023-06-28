@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  height: auto;
+  width: auto;
+}
+
+ion-title {
+  margin-top: 10px;
+  text-align: center;
+}
+
+ion-card {
+  border-radius: 30px;
+  margin: 0px 3px 0 3px;
+  padding: 0px;
+
+  ion-card-content {
+    border-bottom: 2px solid#FBC22C;
+  }
+}
+
+ion-grid {
+  margin: 10px 0px 2px 5px;
+}
+
+
+
+ion-col {
+  img {
+    width: 80px;
+  }
+
+  ion-card-subtitle {
+    margin-left: 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 13px;
+    font-weight: 600;
+  }
+}

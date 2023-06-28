@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-button>
+        <ion-back-button color="preto"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Atualizar Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nome Completo" type="text" labelPlacement="floating" placeholder="Nome"
+        [(ngModel)]="nomeCompleto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email" type="email" labelPlacement="floating" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Telefone" type="tel" labelPlacement="floating" placeholder="Telefone" [(ngModel)]="telefone"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-input label="Senha" type="password" labelPlacement="floating" placeholder="Senha"
+        [(ngModel)]="senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Confirmar Senha" type="password" labelPlacement="floating" placeholder="Confirmar Senha"
+        [(ngModel)]="confirmarSenha"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="salvarNovasInformacoesCliente()" class="ion-padding" expand="block" color="dark">Salvar</ion-button>
+</ion-content>

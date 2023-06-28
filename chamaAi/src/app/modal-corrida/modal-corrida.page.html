@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon (click)="buttonBack()" slot="start" name="arrow-back-outline" size="large"></ion-icon>
+    <ion-title class="ion-text-center">Corrida</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <h4 class="ion-text-center titulo">Qual forma mais te agrada?</h4>
+  <swiper-container [spaceBetween]="30" [slidesPerView]="1" [loop]="true">
+    <swiper-slide (click)="selecionadoMaps()">
+      <ion-card [ngClass]="mapsSelecionado">
+        <div class="small-img">
+          <img src="assets\img\mapsFundo.png" alt="">
+        </div>
+
+        <ion-item lines="full">
+          <ion-card-title class="ion-text-center">Pedir pelo maps?</ion-card-title>
+        </ion-item>
+      </ion-card>
+    </swiper-slide>
+
+    <swiper-slide (click)="selecionadoChat()">
+      <ion-card [ngClass]="chatSelecionado">
+        <div class="small-img">
+          <img
+            src="https://img.freepik.com/vetores-premium/smartphone-na-mao-abra-o-bate-papo-do-messenger_505980-606.jpg?w=360"
+            alt="">
+        </div>
+
+        <ion-item lines="full"><ion-card-title>Pedir pelo chat?</ion-card-title> </ion-item>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <div class="title">
+    <div class="titleTop">
+      <h4>Sobre a corrida</h4>
+    </div>
+  </div>
+
+  <div>
+    <form [formGroup]="informacoesPedidoCorridaFormaDePagamento">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-select aria-label="forma de pagamento" interface="popover" placeholder="Forma de pagamento"
+            formControlName="formaDePagamento">
+            <ion-select-option value="Sim">Dinheiro</ion-select-option>
+            <ion-select-option value="Sim">Crédito</ion-select-option>
+            <ion-select-option value="Sim">Débito</ion-select-option>
+            <ion-select-option value="Não">Pix</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+
+  <ion-button (click)="prosseguirPedido()" class="ion-padding" expand="block" color="dark">Continuar</ion-button>
+</ion-content>

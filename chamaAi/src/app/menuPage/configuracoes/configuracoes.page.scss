@@ -1,0 +1,51 @@
+ion-card {
+  border-radius: 40px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  margin-bottom: 20px;
+
+
+  ion-button {
+    background-color: rgb(255, 255, 255);
+
+    margin: auto;
+    padding: 0px 15px 0px 15px;
+
+    border-radius: 30px;
+    border-bottom: 2px solid #75757552;
+
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+ion-button {
+  width: 150px;
+  margin: auto;
+  margin-top: 10px;
+
+  display: flex;
+  border-radius: 30px;
+}
+
+ion-content {
+  --background: rgba(226, 225, 226, 0.623);
+
+  ion-item {
+    padding: 0 .2rem 0 .2rem;
+    border-radius: 10px;
+    margin: 0.5rem auto 0 auto;
+  }
+
+  ion-label{
+    margin: 0 0 0 .5rem;
+  }
+}
+
+.buttonSair{
+  margin-top: 1.5rem;
+}

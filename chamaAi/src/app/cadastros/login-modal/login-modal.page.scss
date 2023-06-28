@@ -1,0 +1,50 @@
+.content {
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.title {
+  margin: 1rem 0 -1rem 0;
+}
+
+
+.title h4 {
+  color: #f1f1f1;
+}
+
+.title p {
+  margin-top: 0 !important;
+  color: #f1f1f1;
+  font-size: small;
+}
+
+.forgot {
+  margin: 2rem 0px 0px 0px;
+  font-size: small;
+}
+
+.primary-input {
+  color: #ece3e3;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  height: .5rem;
+}
+
+.email{
+  margin: 0 0 2rem 0;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+ion-button {
+  font-size: smaller;
+  font-weight: 600;
+  --padding-start: none;
+  --padding-end: none;
+}
+
+a{
+  color: #FBC22C;;
+}

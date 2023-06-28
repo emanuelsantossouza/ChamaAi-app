@@ -1,0 +1,48 @@
+<app-menus></app-menus>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="amarelo">
+      <ion-title>Configurações</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <ion-item lines="none">
+      <ion-icon name="notifications-circle-outline"></ion-icon>
+      <ion-label>Notificações</ion-label>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="business-outline"></ion-icon>
+      <ion-label>Cadastre sede </ion-label>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="business-outline"></ion-icon>
+      <ion-label>Sobre o app</ion-label>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="lock-closed"></ion-icon>
+      <ion-label>Termos de uso & Privaciade</ion-label>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="terminal"></ion-icon>
+      <ion-label>Desenvolvedores</ion-label>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-item>
+
+    <ion-button class="buttonSair" (click)="sairDoAplicativo()" color="preto">Sair</ion-button>
+    <ion-button color="danger" (click)="confirmacaoExcluirConta()">Apagar Conta</ion-button>
+
+  </ion-content>
+</div>

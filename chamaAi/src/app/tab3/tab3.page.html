@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="amarelo">
+    <ion-title class="title">Chat</ion-title>
+    <ion-icon name="moon-outline" class="iconLua" slot="end"></ion-icon>
+    <ion-icon class="icon" (click)="pesquisar()" slot="end" name="search"></ion-icon>
+  </ion-toolbar>
+
+  <ion-segment color="preto" mode="md"  value="chatComSede">
+    <ion-segment-button (click)="chatComSedes()" value="chatComSede">
+      <ion-label>Sedes</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button (click)="chatComMotoboys()" value="motoboys">
+      <ion-label>Motoboys</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item lines="none">
+      <div (click)="openChatComSede()" *ngIf="temNovaMensagemSede ===true">
+
+        <div class="alinamentosDiv" *ngIf="temNovaMensagemSede === true">
+          <ion-avatar>
+            <img alt="pela new msg" src="{{dadosSedeEscolhidaHtml.logo}}" />
+          </ion-avatar>
+          <div class="conversas">
+            <ion-label>{{dadosSedeEscolhidaHtml.nome}}</ion-label>
+            <p>oio</p>
+          </div>
+          <div class="ultimaHoraVisto">
+            <p>{{horaDaMensagem()}}</p>
+          </div>
+        </div>
+
+        <div class="alinamentosDiv" *ngFor="let salvos of salvarContatosSede">
+          <ion-avatar>
+            <img alt="pelo for" src="{{salvos.logo}}" />
+          </ion-avatar>
+          <div class="conversas">
+            <ion-label>{{salvos.nome}}</ion-label>
+            <p>ultima conversa</p>
+          </div>
+          <div class="ultimaHoraVisto">
+            <p>{{horaDaMensagem()}}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="alinamentosDiv" (click)="openChatComMotoboy()" *ngIf="temNovaMensagemMotoboy">
+        <ion-avatar>
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-avatar>
+
+
+        <div class="conversas">
+          <ion-label>Nome usuario</ion-label>
+          <p>ultima conversa</p>
+        </div>
+
+        <div class="ultimaHoraVisto">
+          <p>4:00</p>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

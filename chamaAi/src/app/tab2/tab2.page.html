@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+
+    <capacitor-google-map id="tamanhoMap" [ngStyle]="{ height: tamanhoMapHeight }" #map></capacitor-google-map>
+
+  <ion-searchbar placeholder="Para onde?" *ngIf="!destination" (ionInput)="buscarEndereco($event)"></ion-searchbar>
+
+  <ion-button class="ion-margin-top" (click)="back()" fill="clear" *ngIf="destination">
+    <ion-icon slot="icon-only" color="preto" name="chevron-back-outline" color="preto"></ion-icon>
+  </ion-button>
+
+  <ion-list class="ion-margin-horizontal" *ngIf="listaEnderecos.length && !destination">
+    <ion-item class="pesquisa" (click)="calcuRota(end)" *ngFor="let end of listaEnderecos" lines="full">
+      <ion-label>
+        {{end.description}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="request-car ion-padding ion-text-center" *ngIf="destination">
+    <h4 class="ion-no-margin">Chama Aí</h4>
+    <span>Escolha a sede que mais te agrada</span>
+
+    <ion-grid>
+      <ion-row>
+        <swiper-container [spaceBetween]="20" [slidesPerView]="3" [loop]="true">
+          <swiper-slide *ngFor="let sede of listaDadosSede">
+            <ion-col (click)="sedeEscolhida(sede.id!)" size="4">
+              <img [src]="sede.logo">
+              <span class="category">{{sede.nome}}</span>
+              <span>R$ 20,00</span>
+            </ion-col>
+          </swiper-slide>
+        </swiper-container>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button class="confirmaViagem" (click)="confirmacaoDaSedeEscolhidaPeloUsuario()" color="dark" expand="blck">Confirma viagem</ion-button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,66 @@
+.content {
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.title {
+  margin: 1rem 0 -1rem 0;
+}
+
+.titleTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title h4 {
+  color: #f1f1f1;
+}
+
+.title p {
+  margin-top: 0 !important;
+  color: #f1f1f1;
+  font-size: smaller;
+}
+
+.primary-input {
+  color: #ece3e3;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  height: .5rem;
+}
+
+
+ion-button {
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 5px;
+  --padding-start: none;
+  --padding-end: none;
+}
+
+p {
+  font-size: small;
+}
+
+.margimBottom {
+  margin-bottom: 2rem;
+}
+
+a {
+  color: #FBC22C;
+}
+
+ion-checkbox {
+  margin: 0 0 0 5px;
+  top: 3px;
+  --size: 15px;
+  --checkbox-background-checked: #FBC22C;
+  ;
+}
+
+ion-checkbox::part(container) {
+  border-radius: 3px;
+  border: 2px solid #FBC22C;
+  --checkmark-color: black;
+}

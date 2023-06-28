@@ -1,0 +1,111 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon slot="start" (click)="buttonBack()" name="arrow-back-outline" size="large"></ion-icon>
+    <ion-title class="ion-text-center">Entrega</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2 class="titulo ion-text-center">Qual forma mais te agrada?</h2>
+
+  <swiper-container [spaceBetween]="30" [slidesPerView]="1" [loop]="true">
+    <swiper-slide>
+      <ion-card [ngClass]="mapsSelecionado" (click)="selecionadoMaps()">
+        <div class="small-img">
+          <img src="assets\img\mapsFundo.png" alt="">
+        </div>
+
+        <ion-item lines="full">
+          <ion-card-title class="ion-text-center">Pedir pelo maps?</ion-card-title>
+        </ion-item>
+      </ion-card>
+    </swiper-slide>
+
+    <swiper-slide>
+      <ion-card [ngClass]="chatSelecionado" (click)="selecionadoChat()">
+        <div class="small-img">
+          <img
+            src="https://img.freepik.com/vetores-premium/smartphone-na-mao-abra-o-bate-papo-do-messenger_505980-606.jpg?w=360"
+            alt="">
+        </div>
+
+        <ion-item lines="full"><ion-card-title>Pedir pelo chat?</ion-card-title> </ion-item>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <div *ngIf="entregaPrimeiraFase === true">
+    <form [formGroup]="informacoesSobrePedidoCorrida">
+      <div class="title">
+        <div class="titleTop">
+          <h4>Sobre o produto</h4>
+          <ion-chip color="amarelo">
+            <ion-label>1/2</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+
+      <ion-list>
+        <ion-item lines="none">
+          <ion-input label="Peso" type="text" labelPlacement="floating" placeholder="Peso aproximado"
+            formControlName="peso" minlength="1" helperText="Informe o peso aproximando em kg ou g"
+            errorText=" Por favor, digite o peso aproximado"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input label="Tamanho" type="email" labelPlacement="floating"
+            placeholder="Pequeno, Médio, Grande, Muito Grande" formControlName="tamanho" minlength="3"
+            helperText="Informe o tamanho em pequeno, médio, grande, muito grande"
+            errorText=" Por favor, digite o tamanho do produto"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-select aria-label="É fragil?" interface="popover" placeholder="É fragil?" formControlName="fragil">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input label="Descrição" type="text" labelPlacement="floating"
+            placeholder="Uma pequenha descrição sobre o produto" formControlName="descricao" minlength="10"
+            helperText="Faça um breve descrição sobre o que será levado"
+            errorText="Por favor, faça um breve descrição sobre o produto"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+    <ion-button (click)="salvar()" class="ion-padding" expand="block" color="dark">Salvar</ion-button>
+  </div>
+
+  <div *ngIf="entregaSegundaFase === true">
+    <form [formGroup]="informacoesSobrePedidoEntregaFormaDePagamento">
+      <div class="title">
+        <div class="titleTop">
+          <h4>Sobre o pagamento</h4>
+          <ion-chip color="amarelo">
+            <ion-label>2/2</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+
+      <ion-list>
+        <ion-item lines="none">
+          <ion-select aria-label="forma de pagamento" interface="popover" placeholder="Forma de pagamento"
+            formControlName="formaDePagamento">
+            <ion-select-option value="Dinheiro">Dinheiro</ion-select-option>
+            <ion-select-option value="Crédito">Crédito</ion-select-option>
+            <ion-select-option value="Débito">Débito</ion-select-option>
+            <ion-select-option value="Pix">Pix</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    </form>
+    <ion-button (click)="prosseguirPedido()" class="ion-padding" expand="block" color="dark">Continuar</ion-button>
+  </div>
+
+
+</ion-content>

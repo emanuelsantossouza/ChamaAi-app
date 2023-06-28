@@ -1,0 +1,66 @@
+<ion-content class="content" color="dark" [fullscreen]="true">
+  <div class="title">
+    <div class="titleTop">
+      <h4>Cadastro</h4>
+      <ion-chip color="amarelo">
+        <ion-label>{{nivelDoCadastro}}/2</ion-label>
+      </ion-chip>
+    </div>
+    <p>Cadastre-se e aproveite o melhor do app</p>
+  </div>
+
+
+
+  <form [formGroup]="formulario">
+    <div *ngIf="informacoesContato">
+      <ion-input (ionChange)="eventInput($event)" [color]="colorInput" type="text" minlength="10" placeholder="Nome Completo" labelPlacement="floating"
+        class="primary-input" ngModel nomeCompleto label="Nome" helperText="Informe seu Nome Completo"
+        errorText=" Por favor, digite teu nome Completo!" formControlName="nomeCompleto">
+      </ion-input>
+
+      <ion-input color="amarelo" type="Tel" minlength="11" placeholder="Telefone" labelPlacement="floating"
+        class="primary-input" ngModel telefone label="Telefone" helperText="Informe seu telefone"
+        errorText=" Por favor, digite um telefone valido!!" formControlName="telefone"  [specialCharacters]="['(', ')', '-', ' ']" mask="(00) 0 0000-0000">
+      </ion-input>
+
+      <ion-input color="amarelo" type="Date" minlength="6" labelPlacement="floating" class="primary-input margimBottom" ngModel
+        data label="Data de Nascimento" helperText="Informe sua data de nascimento"
+        errorText=" Por favor, digite uma data valida!!" formControlName="dataDNascimento">
+      </ion-input>
+    </div>
+
+    <div *ngIf="informacoesContato === false">
+      <ion-input color="amarelo" type="email" minlength="6" placeholder="Email" labelPlacement="floating"
+        class="primary-input" ngModel email label="Email" helperText="Informe seu email"
+        errorText=" Por favor, digite um email valido!" formControlName="email">
+      </ion-input>
+
+      <ion-input color="amarelo" type="password" minlength="8" placeholder="Senha" labelPlacement="floating"
+        class="primary-input" ngModel senha label="Senha" helperText="Informe sua senha"
+        errorText=" Por favor, digite uma senha valida!!" formControlName="senha">
+      </ion-input>
+
+      <ion-input color="amarelo" type="password" minlength="8" labelPlacement="floating" class="primary-input margimBottom" ngModel
+        confirmaSenha label="Confirma Senha" helperText="Confirme a sua senha"
+        errorText=" Por favor, Confirmar senha esta diferente de senha!" formControlName="confirmaSenha">
+      </ion-input>
+    </div>
+  </form>
+
+  <div *ngIf="informacoesContato === false">
+    <p>Você concorda com nossos Termos e Condições. <ion-checkbox (ionChange)="event($event)"></ion-checkbox></p>
+    <div class="ion-margin-top ion-text-center">
+      <ion-button [disabled]="marcadoTermos ? false : true" color="amarelo" class="ion-no-padding"
+        expand="block" (click)="salvarCadastro()">Cadastrar</ion-button>
+      <a (click)="cancel()">Fechar</a>
+    </div>
+  </div>
+
+
+  <div  *ngIf="informacoesContato === true" class="ion-margin-top ion-text-center">
+    <ion-button color="amarelo" class="ion-no-padding"
+      expand="block" (click)="nivelDoisCadastro()">Continuar <ion-icon slot="end" name="chevron-forward-outline"></ion-icon></ion-button>
+    <a (click)="cancel()">Fechar</a>
+  </div>
+
+</ion-content>

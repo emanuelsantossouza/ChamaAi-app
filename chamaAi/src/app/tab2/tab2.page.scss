@@ -1,0 +1,90 @@
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+capacitor-google-map {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+ion-searchbar {
+  margin-top: 1rem;
+  --background: #ffffff;
+  --color: black;
+  --position: relative;
+}
+
+ion-list {
+  margin-top: .3rem;
+  background-color: #fff;
+  box-sizing: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  .pesquisa {
+    background: #fff;
+    background-color: #fff;
+    font-size: 1rem;
+  }
+}
+
+.request-car {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20.6rem;
+  background-color: #fff;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto -15px auto;
+  }
+
+  span {
+    display: block;
+
+    ion-grid {
+      span {
+        margin-top: 0.9rem;
+        font-size: .7rem;
+        font-weight: 400;
+
+        .category {
+          margin-top: 0.9rem;
+          font-size: .7rem;
+          font-weight: 400;
+        }
+      }
+
+      &.category {
+        color: #fff;
+        background-color: #333;
+        margin-top: 0px;
+        padding: 3px 5px;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+span.category {
+  margin-top: 1rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  width: 65px;
+}
+
+ion-icon {
+  color: #000;
+}
+
+.confirmaViagem {
+  
+}
