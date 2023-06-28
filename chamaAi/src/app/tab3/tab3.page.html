@@ -20,9 +20,9 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item lines="none">
-      <div  *ngIf="temNovaMensagemSede === true">
+      <div *ngIf="temNovaMensagemSede === true">
 
-        <div class="alinamentosDiv"  *ngIf="temNovaMensagemSede === true">
+        <div class="alinamentosDiv" *ngIf="temMensagemMotoboy === true">
           <ion-avatar>
             <img alt="pela new msg" src="{{dadosSedeEscolhidaHtml.logo}}" />
           </ion-avatar>
@@ -34,7 +34,6 @@
             <p>{{horaDaMensagem()}}</p>
           </div>
         </div>
-
 
         <div class="alinamentosDiv" *ngFor="let salvos of listaDadosHtmlSedeFront">
           <ion-avatar>
@@ -49,7 +48,6 @@
           </div>
         </div>
 
-
         <div class="alinamentosDiv" (click)="openChatComSede()" *ngFor="let salvos of salvarContatosSede">
           <ion-avatar>
             <img alt="pelo for" src="{{salvos.logo}}" />
@@ -62,15 +60,12 @@
             <p>{{horaDaMensagem()}}</p>
           </div>
         </div>
-
-
-
       </div>
 
 
 
 
-      <div *ngIf="temNovaMensagemSede === false">
+      <div *ngIf="temNovaMensagemMotoboy === true">
 
         <div *ngFor="let salvos of listaDadosHtmlMotoboy" (click)="openChatComMotoboy()">
           <div class="alinamentosDiv">

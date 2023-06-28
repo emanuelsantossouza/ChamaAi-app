@@ -41,6 +41,7 @@ export class Tab3Page implements OnInit {
   listaDadosHtmlMotoboy: Motoboy[] = [];
 
   escolhaCliente: any
+  temMensagemMotoboy!: boolean;
   constructor(
     private usuario: UserService,
     private router: Router,
@@ -51,7 +52,7 @@ export class Tab3Page implements OnInit {
     private sedeService: SedeService,
     private motoboyService: MotoboyService
   ) {
-    this.corDoTemaAtual = Boolean(this.cookiesService.get('NovoCorTema'))
+    this.corDoTemaAtual = Boolean(this.cookiesService.get('NovoCorTema'));
     if (this.corDoTemaAtual) {
       document.body.setAttribute('color-theme', 'dark')
     } else {
@@ -183,6 +184,7 @@ export class Tab3Page implements OnInit {
       },
     ]
 
+
     this.listaDadosHtmlSedeFront = [
       {
         id: 1,
@@ -288,30 +290,27 @@ export class Tab3Page implements OnInit {
     this.motoboyEscolhidoId = converteMotoboyIdToNumber;
 
 
-
-    const mensangeTabsCorrida = Boolean(localStorage.getItem('PedirPeloTabsCorrida'));
-    const mensangeTabsEntrega = Boolean(localStorage.getItem('PedirPeloTabsEntrega'));
-
-    if (mensangeTabsCorrida == true || this.sedeEscolhidaId >= 1) {
-      this.temNovaMensagemSede = true;
-      this.escolhaCliente = 'chatComSede'
-    } else if (mensangeTabsEntrega == true || this.motoboyEscolhidoId >= 1) {
-      this.escolhaCliente = 'motoboys'
-    }
   }
 
   ionViewWillEnter() {
     console.log('ionViewWillEnter');
 
-
     const mensangeTabsCorrida = Boolean(localStorage.getItem('PedirPeloTabsCorrida'));
     const mensangeTabsEntrega = Boolean(localStorage.getItem('PedirPeloTabsEntrega'));
+
+    if (this.sedeEscolhidaId >= 1) {
+      this.temMensagemMotoboy = true;
+    }
+
 
     if (mensangeTabsCorrida == true || this.sedeEscolhidaId >= 1) {
       this.temNovaMensagemSede = true;
       this.escolhaCliente = 'chatComSede'
+      this.buscarMotoboyEscolhidaParaSede();
     } else if (mensangeTabsEntrega == true || this.motoboyEscolhidoId >= 1) {
       this.escolhaCliente = 'motoboys'
+      this.buscarMotoboyEscolhidaParaSede();
+
     }
   }
 
@@ -377,15 +376,14 @@ export class Tab3Page implements OnInit {
 
   chatComMotoboys() {
     console.log(this.chatComSede)
-
     this.temNovaMensagemSede = false;
-
+    this.temNovaMensagemMotoboy = true;
     this.escolhaCliente = 'motoboys'
   }
 
   chatComSedes() {
-    debugger
     this.temNovaMensagemSede = true;
+    this.temNovaMensagemMotoboy = false;
     this.chatComSede = true;
     console.log(this.chatComSede)
 
@@ -395,64 +393,64 @@ export class Tab3Page implements OnInit {
 
 
   async openChatComSede() {
-  const modal = await this.modalCtrl.create({
-    component: ChatModalPage,
-    cssClass: 'ChatModal',
-  });
+    const modal = await this.modalCtrl.create({
+      component: ChatModalPage,
+      cssClass: 'ChatModal',
+    });
 
-  modal.present();
-}
+    modal.present();
+  }
 
   async openChatComMotoboy() {
-  const modal = await this.modalCtrl.create({
-    component: ChatModalPage,
-    cssClass: 'ChatModal',
-  });
+    const modal = await this.modalCtrl.create({
+      component: ChatModalPage,
+      cssClass: 'ChatModal',
+    });
 
-  modal.present();
-}
+    modal.present();
+  }
 
-buscarSedeEscolhidaParaSede() {
-  this.dadosSedeEscolhidaHtml = this.listaDadosHtmlSede[this.sedeEscolhidaId - 1];
-  console.log(this.dadosSedeEscolhidaHtml);
-}
+  buscarSedeEscolhidaParaSede() {
+    this.dadosSedeEscolhidaHtml = this.listaDadosHtmlSede[this.sedeEscolhidaId - 1];
+    console.log(this.dadosSedeEscolhidaHtml);
+  }
 
-buscarMotoboyEscolhidaParaSede() {
-  this.dadosMotoboyEscolhidaHtml = this.listaDadosHtmlMotoboy[this.motoboyEscolhidoId];
-}
+  buscarMotoboyEscolhidaParaSede() {
+    this.dadosMotoboyEscolhidaHtml = this.listaDadosHtmlMotoboy[this.motoboyEscolhidoId];
+  }
 
-horaDaMensagem() {
-  const dateNow = new Date();
+  horaDaMensagem() {
+    const dateNow = new Date();
 
-  const hora = dateNow.getHours();
-  const minutos = dateNow.getMinutes();
-
-
-
-  const horaFormatada = `${this.formatarNumeroHora(minutos)}:${this.formatarNumeroHora(hora)}`;
-  return horaFormatada;
-}
-
-formatarNumeroHora(numero: number): string {
-  return numero < 10 ? `0${numero}` : `${numero}`;
-}
-
-trocaDeTema(event: any) {
-  console.log(event)
-  this.cookiesService.delete('NovoCorTema');
-  console.log(this.corDoTemaAtual = event.detail.checked);
-
-  // this.cookiesService.set('NovoCorTema', this.corDoTemaAtual.toString())
+    const hora = dateNow.getHours();
+    const minutos = dateNow.getMinutes();
 
 
-  // if (this.corDoTemaAtual) {
-  //   document.body.setAttribute('color-theme', 'dark')
-  // } else {
-  //   document.body.setAttribute('color-theme', 'light');
-  // }
-}
 
-buscarMensagensAnteriores() {
-  this.chatService.BuscarMensagensSalvas(this.sedeEscolhidaId);
-}
+    const horaFormatada = `${this.formatarNumeroHora(minutos)}:${this.formatarNumeroHora(hora)}`;
+    return horaFormatada;
+  }
+
+  formatarNumeroHora(numero: number): string {
+    return numero < 10 ? `0${numero}` : `${numero}`;
+  }
+
+  trocaDeTema(event: any) {
+    console.log(event)
+    this.cookiesService.delete('NovoCorTema');
+    console.log(this.corDoTemaAtual = event.detail.checked);
+
+    // this.cookiesService.set('NovoCorTema', this.corDoTemaAtual.toString())
+
+
+    // if (this.corDoTemaAtual) {
+    //   document.body.setAttribute('color-theme', 'dark')
+    // } else {
+    //   document.body.setAttribute('color-theme', 'light');
+    // }
+  }
+
+  buscarMensagensAnteriores() {
+    this.chatService.BuscarMensagensSalvas(this.sedeEscolhidaId);
+  }
 }
