@@ -7,9 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import { ExploreContainerComponentModule } from 'src/app/explore-container/explore-container.module';
 import { CadastroPageModule } from '../cadastros/cadastro.module';
-import { LoginFacebookComponenetModule } from 'src/app/login-facebook/login-facebook.module';
+
+
 
 @NgModule({
   imports: [
@@ -18,8 +18,6 @@ import { LoginFacebookComponenetModule } from 'src/app/login-facebook/login-face
     IonicModule,
     LoginPageRoutingModule,
     CadastroPageModule,
-    ExploreContainerComponentModule,
-    LoginFacebookComponenetModule,
     ReactiveFormsModule,
   ],
   declarations: [LoginPage],

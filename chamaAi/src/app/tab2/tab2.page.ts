@@ -285,8 +285,8 @@ export class Tab2Page implements OnInit {
         {
           title: 'Localização Sede até você',
           coordinate: {
-            lat: dados.localizacaoSede.latitude as number,
-            lng: dados.localizacaoSede.longitude as number,
+            lat: dados.localizacaoSede?.latitude as number,
+            lng: dados.localizacaoSede?.longitude as number,
           },
           iconUrl: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/f42bdf4c08684af1db13aca13d32d710054d0216/icons/iconMapsSede.svg',
           iconAnchor: { x: 20, y: 33, }
@@ -312,7 +312,7 @@ export class Tab2Page implements OnInit {
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             key: environment.mapsKey,
-            latlng: `${this.sedeEscolhidaPeloUsuario.localizacaoSede.latitude},${this.sedeEscolhidaPeloUsuario.localizacaoSede.longitude}`,
+            latlng: `${this.sedeEscolhidaPeloUsuario.localizacaoSede?.latitude},${this.sedeEscolhidaPeloUsuario.localizacaoSede?.longitude}`,
           },
         })
         .subscribe(async (dados) => {

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { CadastroPageRoutingModule } from './cadastro-routing.module';
 
 import { CadastroPage } from './cadastro.page';
-import { ExploreContainerComponentModule } from 'src/app/explore-container/explore-container.module';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig } f
     FormsModule, ReactiveFormsModule,
     IonicModule,
     CadastroPageRoutingModule,
-    ExploreContainerComponentModule
   ],
   declarations: [CadastroPage],
   exports: [CadastroPage],

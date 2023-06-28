@@ -1,24 +1,28 @@
 <ion-content color="amarelo" class="ion-padding ion-text-center" [fullscreen]="true">
-
   <div class="imgLogo">
-    <img src="../assets/img/logoChamaai.png" alt="Logo do Aplicativo">
+    <ion-img src="../assets/img/logoChamaai.png" alt="Logo do Aplicativo"></ion-img>
   </div>
-
-  <div class="loginTitleButton">
+  <div class="loginTitleButton ion-padding ion-text-center">
     <div class="title">
-      <h2>Bem vindo</h2>
-      <p>Utilize uma forma de login Segura!</p>
+      <h2>Bem-vindo</h2>
+      <p>Utilize uma forma de login segura!</p>
     </div>
-
     <div class="ion-margin-top">
       <ion-button expand="block" class="ion-margin-top" (click)="openRegisterModal()" fill="outline" color="preto">
-        Cadastre-se</ion-button>
-
-      <ion-button expand="block" class="ion-margin-top" (click)="openModal()" color="dark">Login<ion-icon
-          class="loginIcons" slot="end" name="person"></ion-icon>
+        Cadastre-se
       </ion-button>
-      <app-explore-container></app-explore-container>
-      <app-login-facebook></app-login-facebook>
+      <ion-button expand="block" class="ion-margin-top" (click)="openModal()" color="dark">
+        Login
+        <ion-icon class="loginIcons" slot="end" name="person"></ion-icon>
+      </ion-button>
+      <ion-button expand="block" class="ion-margin-top" color="dark">
+        Login
+        <ion-icon class="loginIcons" slot="end" name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button expand="block" class="ion-margin-top" color="dark">
+        Login
+        <ion-icon slot="end" name="logo-google"></ion-icon>
+      </ion-button>
     </div>
   </div>
 </ion-content>

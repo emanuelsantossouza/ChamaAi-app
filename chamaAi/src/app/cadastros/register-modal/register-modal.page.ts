@@ -113,19 +113,21 @@ export class RegisterModalPage implements OnInit {
   async salvarCadastro() {
     if (this.formulario.valid) {
       const usuario: Usuario = this.formulario.value;
-      console.log(` ${usuario.senha} e ${usuario.confirmaSenha}`)
       if (usuario.senha == usuario.confirmaSenha) {
-        this.userService.SalvarTodos(usuario).subscribe((resultado) => {
-          console.log(resultado);
-          this.titulo = 'Salvo com Sucesso';
-          this.msg = 'Realize o login para acessar a sua conta!!!';
-          this.sucessoAlert(this.titulo, this.msg);
-          this.showLoading();
-          this.isUsuarioLogado = true;
-          const converteIsUsuarioLogadoToString = this.isUsuarioLogado.toString();
-          localStorage.setItem('isUsuarioLogadoMobile', converteIsUsuarioLogadoToString);
-          this.modalCtrl.dismiss();
-        });
+        this.titulo = 'Salvo com Sucesso';
+        this.msg = 'Realize o login para acessar a sua conta!!!';
+        this.sucessoAlert(this.titulo, this.msg);
+        this.showLoading();
+
+        this.isUsuarioLogado = true;
+        const converteIsUsuarioLogadoToString = this.isUsuarioLogado.toString();
+        localStorage.setItem('isUsuarioLogadoMobile', converteIsUsuarioLogadoToString);
+        localStorage.setItem('usuarioNome', usuario.nomeCompleto!);
+        localStorage.setItem('usuarioEmail', usuario.email!);
+        localStorage.setItem('usuarioSenha', usuario.senha!);
+        localStorage.setItem('usuarioConfirmaSenha', usuario.confirmaSenha!);
+        this.modalCtrl.dismiss();
+
       } else {
         this.titulo = 'Confirmar senha Incorreto!!!';
         this.msg = 'Por favor, verifiquei se o confirmar senha está igual a senha.';

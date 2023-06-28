@@ -77,24 +77,24 @@ export class LoginModalPage implements OnInit {
   }
 
   async login() {
+    this.showLoading();
     if (this.formLogin.valid) {
 
       const email = this.formLogin.get('email')?.value;
       const senha = this.formLogin.get('senha')?.value;
 
 
-      const usuario: Usuario = await this.usuarioSede.login(email, senha) as Usuario;
+      const emailUsuarioLocal = localStorage.getItem('usuarioEmail');
+      const senhaUsuarioLocal = localStorage.getItem('usuarioSenha');
 
-      if (usuario) {
-        this.showLoading();
+      if (senha === senhaUsuarioLocal && email === emailUsuarioLocal) {
+
         // redirecionar para página principal
         this.route.navigateByUrl(`/tabs`);
         // exibir toast de boas-vindas
         this.presentToast("bottom");
         // Salando o cookie
         this.modalCtrl.dismiss();
-        this.cookieService.set('userId', usuario.id!.toString());
-        this.cookieService.set('NameUser', usuario.nomeCompleto!);
       } else {
         this.titulo = 'E-mail ou Senha inválidos!';
         this.msg = "Por favor, verifique se os campos de email ou senha estão corretos.";

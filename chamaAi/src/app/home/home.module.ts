@@ -19,7 +19,6 @@ import { TabsPageModule } from '../tabs/tabs.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    LoginPageModule,
     TabsPageModule
   ],
   declarations: [HomePage],
