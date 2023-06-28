@@ -18,10 +18,9 @@
 
 
 <ion-content [fullscreen]="true">
-
   <ion-list>
     <ion-item lines="none">
-      <div (click)="openChatComSede()" *ngIf="temNovaMensagemSede ===true">
+      <div (click)="openChatComSede()" *ngIf="temNovaMensagemSede === true">
 
         <div class="alinamentosDiv" *ngIf="temNovaMensagemSede === true">
           <ion-avatar>
@@ -48,13 +47,25 @@
             <p>{{horaDaMensagem()}}</p>
           </div>
         </div>
+
+        <div class="alinamentosDiv" *ngFor="let salvos of listaDadosHtmlSedeFront">
+          <ion-avatar>
+            <img alt="pelo for" src="{{salvos.logo}}" />
+          </ion-avatar>
+          <div class="conversas">
+            <ion-label>{{salvos.nome}}</ion-label>
+            <p>ultima conversa</p>
+          </div>
+          <div class="ultimaHoraVisto">
+            <p>{{horaDaMensagem()}}</p>
+          </div>
+        </div>
       </div>
 
-      <div class="alinamentosDiv" (click)="openChatComMotoboy()" *ngIf="temNovaMensagemMotoboy">
+      <div class="alinamentosDiv" (click)="openChatComMotoboy()">
         <ion-avatar>
           <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
         </ion-avatar>
-
 
         <div class="conversas">
           <ion-label>Nome usuario</ion-label>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
+import { Sede } from 'src/app/models/Sede';
 import { Mensagem, MensagemParaApi } from 'src/app/models/message';
 import { ChatService } from 'src/app/services/chat.service';
 import { SedeService } from 'src/app/services/sede.service';
@@ -19,6 +20,7 @@ export class ChatModalPage implements OnInit {
   sedeBuscaPeloUsuarioApi!: any
   textSede!: string
   messages: Mensagem[] = [];
+  mensageUsuario!: Mensagem;
 
   dadosParaApi!: MensagemParaApi;
   clienteId: number;
@@ -30,6 +32,8 @@ export class ChatModalPage implements OnInit {
 
   margemDinamicaUsuario!: string
   margemDinamicaNUsuario!: string
+
+  listaDadosHtmlSede: Sede[] = [];
   constructor(
     private modalCtrl: ModalController,
     private cookieService: CookieService,
@@ -47,6 +51,95 @@ export class ChatModalPage implements OnInit {
 
     const converteSedeIdToNumber = parseInt(localStorage.getItem('SedeEscolhidaId')!);
     this.sedeEscolhidaId = converteSedeIdToNumber;
+
+
+
+
+
+
+
+    this.listaDadosHtmlSede = [
+      {
+        id: 1,
+        logo: 'https://img.elo7.com.br/product/main/4418282/logomarca-tema-motoboy-arte.jpg',
+        endereco: 'R. Maj. Pompeu - Centro',
+        nome: 'Motokas Center',
+        localizacaoSede: {
+          latitude: -22.497647,
+          longitude: -48.557697,
+        },
+      },
+      {
+        id: 2,
+        logo: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/main/logos/Chamou.Chegou%20Motos.png',
+        endereco: 'R.Salvador de Toledo - Centro',
+        nome: 'Chegou Motos',
+        localizacaoSede: {
+          latitude: -22.496132,
+          longitude: - 48.559654,
+        },
+      },
+      {
+        id: 3,
+        logo: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/main/logos/motosExpress%20(1).png',
+        endereco: '261 R. Ângelo Reginato',
+        nome: 'Motos Express',
+        localizacaoSede: {
+          latitude: 22.490615,
+          longitude: - 48.563118,
+        },
+      },
+      {
+        id: 4,
+        logo: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/main/logos/VelozMotos.png',
+        endereco: 'R. Antônio Destro - Sonho nosso',
+        nome: 'Veloz Motos',
+        localizacaoSede: {
+          latitude: -22.467396,
+          longitude: - 48.561526,
+        },
+      },
+      {
+        id: 5,
+        logo: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/main/logos/MotoLigeiro.png',
+        endereco: 'R.Francisco Martins - Sonho nosso 5',
+        nome: 'Motos Ligueirinho',
+        localizacaoSede: {
+          latitude: -22.460819,
+          longitude: - 48.566459,
+        },
+      },
+      {
+        id: 6,
+        logo: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/main/logos/MotoFacil.png',
+        endereco: 'R.Joaquim Angelo Momesso - Vila Hab',
+        nome: 'Moto Facil',
+        localizacaoSede: {
+          latitude: -22.491509,
+          longitude: -48.546242,
+        },
+      },
+      {
+        id: 7,
+        logo: 'https://img.elo7.com.br/product/360x360/4418247/logomarca-tema-motoboy-arte.jpg',
+        endereco: 'R.Augusto da Silva - Nova Barra',
+        nome: 'Motos Flash',
+        localizacaoSede: {
+          latitude: -22.484631,
+          longitude: - 48.573221,
+        },
+      },
+      {
+        id: 8,
+        logo: 'https://raw.githubusercontent.com/emanuelsantossouza/tccImg/main/logos/MotoAs.png',
+        endereco: 'R.Hilário Parezan - CECAP',
+        nome: 'Motos Agies',
+        localizacaoSede: {
+          latitude: -22.483528,
+          longitude: -48.563805,
+        },
+      },
+    ]
   }
 
   async ngOnInit() {
@@ -62,9 +155,7 @@ export class ChatModalPage implements OnInit {
 
   // buscando conversas anteriores no banco de dados
   buscarContato() {
-    this.sedeServices.BuscarDadosPorId(this.sedeEscolhidaId).subscribe((results) => {
-      this.sedeBuscaPeloUsuarioApi = results;
-    })
+    this.sedeBuscaPeloUsuarioApi = this.listaDadosHtmlSede[this.sedeEscolhidaId -1]
   }
 
   // buscando conversas anteriores no banco de dados
@@ -119,6 +210,25 @@ export class ChatModalPage implements OnInit {
 
   // Enviando mensagem para outro usuario
   async enviarMensagem() {
+
+    const dateNow = new Date();
+    const hora = dateNow.getHours();
+    const minutos = dateNow.getMinutes();
+
+    const horaFormatada = `${this.formatarNumeroHora(hora)}:${this.formatarNumeroHora(minutos)}`;
+
+    this.mensageUsuario = {
+      date: horaFormatada,
+      message: this.message,
+      user: '',
+    }
+
+    this.messages.push(this.mensageUsuario);
+
+
+
+
+
     await this.socketService.enviarMensagem(this.user, this.message, this.clienteId);
 
     this.dadosParaApi = {
