@@ -20,9 +20,9 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item lines="none">
-      <div *ngIf="temNovaMensagemSede === true">
+      <div *ngIf="temNovaMensagemSede === true" (click)="openChatComSede()">
 
-        <div class="alinamentosDiv" *ngIf="temMensagemMotoboy === true">
+        <div class="alinamentosDiv"  *ngIf="temMensagemMotoboy === true">
           <ion-avatar>
             <img alt="pela new msg" src="{{dadosSedeEscolhidaHtml.logo}}" />
           </ion-avatar>
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="alinamentosDiv" *ngFor="let salvos of listaDadosHtmlSedeFront">
+        <div class="alinamentosDiv" (click)="openChatComSede()" *ngFor="let salvos of listaDadosHtmlSedeFront">
           <ion-avatar>
             <img alt="pelo for" src="{{salvos.logo}}" />
           </ion-avatar>

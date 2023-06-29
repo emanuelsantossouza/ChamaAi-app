@@ -427,7 +427,7 @@ export class Tab3Page implements OnInit {
 
 
 
-    const horaFormatada = `${this.formatarNumeroHora(minutos)}:${this.formatarNumeroHora(hora)}`;
+    const horaFormatada = `${this.formatarNumeroHora(hora)}:${this.formatarNumeroHora(minutos)}`;
     return horaFormatada;
   }
 
